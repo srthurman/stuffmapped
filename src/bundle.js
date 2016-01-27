@@ -19024,6 +19024,25 @@ module.exports = require('./lib/React');
 
 var React = require('react');
 
+var Footer = React.createClass({displayName: "Footer",
+    render: function() {
+        return (
+            React.createElement("div", null, 
+                React.createElement("footer", {className: "container"}, 
+                    "Footer goes here"
+                )
+            )
+        );
+    }
+});
+
+module.exports = Footer;
+
+},{"react":157}],159:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+
 var Header = React.createClass({displayName: "Header",
     render: function() {
         return (
@@ -19052,7 +19071,7 @@ var Header = React.createClass({displayName: "Header",
 
 module.exports = Header;
 
-},{"react":157}],159:[function(require,module,exports){
+},{"react":157}],160:[function(require,module,exports){
 // test.js
 var React = require('react');
 
@@ -19066,13 +19085,16 @@ var Test = React.createClass({displayName: "Test",
 
 module.exports = Test;
 
-},{"react":157}],160:[function(require,module,exports){
+},{"react":157}],161:[function(require,module,exports){
 //main.js
 
 var React = require('react');
 var Header = require('./components/common/header');
+var Footer = require('./components/common/footer');
 var TestComponent = require('./components/map/test');
 
 React.render(React.createElement(Header, null), document.getElementById('header'));
+React.render(React.createElement(TestComponent, null), document.getElementById('map'));
+React.render(React.createElement(Footer, null), document.getElementById('footer'));
 
-},{"./components/common/header":158,"./components/map/test":159,"react":157}]},{},[160,159]);
+},{"./components/common/footer":158,"./components/common/header":159,"./components/map/test":160,"react":157}]},{},[161,160]);
