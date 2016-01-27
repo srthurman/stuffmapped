@@ -19020,6 +19020,39 @@ module.exports = warning;
 module.exports = require('./lib/React');
 
 },{"./lib/React":25}],158:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+
+var Header = React.createClass({displayName: "Header",
+    render: function() {
+        return (
+            React.createElement("div", null, 
+                React.createElement("header", {className: "container-fluid"}, 
+                    React.createElement("div", {id: "menu", className: "navbar navbar-default navbar-fixed-top"}, 
+                        React.createElement("div", {className: "navbar-header"}, 
+                            React.createElement("button", {className: "btn btn-success btn-sm navbar-toggle", "data-toggle": "collapse", "data-target": ".navbar-collapse"}, React.createElement("span", {className: "glyphicon glyphicon-chevron-down"})), 
+                            React.createElement("div", {id: "logo"}, 
+                                React.createElement("a", {href: "."}, React.createElement("h4", null, "Stuffmapped"))
+                            )
+                        ), 
+                        React.createElement("div", {className: "navbar-collapse collapse"}, 
+                            React.createElement("ul", {className: "nav navbar-nav navbar-right"}, 
+                                React.createElement("li", {className: "nav active"}, React.createElement("a", {href: "."}, "Home")), 
+                                React.createElement("li", {className: "nav"}, React.createElement("a", {href: "about.html"}, "About")), 
+                                React.createElement("li", {className: "nav"}, React.createElement("a", {href: "contact.html"}, "Contact"))
+                            )
+                        )
+                    )
+                )
+            )
+        );
+    }
+});
+
+module.exports = Header;
+
+},{"react":157}],159:[function(require,module,exports){
 // test.js
 var React = require('react');
 
@@ -19033,12 +19066,13 @@ var Test = React.createClass({displayName: "Test",
 
 module.exports = Test;
 
-},{"react":157}],159:[function(require,module,exports){
+},{"react":157}],160:[function(require,module,exports){
 //main.js
 
 var React = require('react');
+var Header = require('./components/common/header');
 var TestComponent = require('./components/map/test');
 
-React.render(React.createElement(TestComponent, null), document.getElementById('map'));
+React.render(React.createElement(Header, null), document.getElementById('header'));
 
-},{"./components/map/test":158,"react":157}]},{},[159,158]);
+},{"./components/common/header":158,"./components/map/test":159,"react":157}]},{},[160,159]);
