@@ -7,7 +7,7 @@ var Footer = React.createClass({
         return (
             <div>
                 <footer className="container">
-                    Footer goes here
+                    Footer text here
                 </footer>
             </div>
         );

@@ -19029,7 +19029,7 @@ var Footer = React.createClass({displayName: "Footer",
         return (
             React.createElement("div", null, 
                 React.createElement("footer", {className: "container"}, 
-                    "Footer goes here"
+                    "Footer text here"
                 )
             )
         );
@@ -19097,4 +19097,4 @@ React.render(React.createElement(Header, null), document.getElementById('header'
 React.render(React.createElement(TestComponent, null), document.getElementById('map'));
 React.render(React.createElement(Footer, null), document.getElementById('footer'));
 
-},{"./components/common/footer":158,"./components/common/header":159,"./components/map/test":160,"react":157}]},{},[161,160]);
+},{"./components/common/footer":158,"./components/common/header":159,"./components/map/test":160,"react":157}]},{},[161,158,159,160]);

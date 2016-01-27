@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:browserify": "browserify -t reactify src/main.js src/components/**/*.js -o src/bundle.js",
+    "build:watch": "watchify -t reactify src/main.js src/components/**/*.js -o src/bundle.js -v"
   },
   "repository": {
     "type": "git",
@@ -21,14 +22,11 @@
     "eslint": "^1.10.3",
     "jquery": "^2.2.0",
     "react": "^0.14.6",
-    "react-router": "^2.0.0-rc5",
-    "reactify": "^1.1.1"
+    "react-router": "^2.0.0-rc5"
   },
   "devDependencies": {
     "browserify": "^13.0.0",
-    "reactify": "^1.1.1"
-  },
-  "scripts": {
-    "build:browserify": "browserify -t reactify src/main.js src/components/map/test.js -o src/bundle.js"
+    "reactify": "^1.1.1",
+    "watchify": "^3.7.0"
   }
 }
