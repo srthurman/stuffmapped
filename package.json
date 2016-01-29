@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build:browserify": "browserify -t reactify src/main.js src/components/**/*.js -o src/bundle.js",
-    "build:watch": "watchify -t reactify src/main.js src/components/**/*.js -o src/bundle.js -v"
+    "build:watch": "watchify -t reactify src/main.js src/routes.js src/components/*.js src/components/**/*.js -o src/bundle.js -v"
   },
   "repository": {
     "type": "git",
