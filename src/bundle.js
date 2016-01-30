@@ -33626,16 +33626,18 @@ var About = React.createClass({displayName: "About",
   render: function() {
       return (
                 React.createElement("div", null, 
-                    React.createElement("h1", null, "About"), 
-                    React.createElement("p", null, " This application uses the following technologies:", 
-                        React.createElement("ul", null, 
-                            React.createElement("li", null, "React"), 
-                            React.createElement("li", null, "React Router"), 
-                            React.createElement("li", null, "Flux"), 
-                            React.createElement("li", null, "Browserify"), 
-                            React.createElement("li", null, "Node")
+                    React.createElement("div", {className: "page-header"}, 
+                        React.createElement("h1", null, "About")
+                    ), 
+                        React.createElement("p", null, " This application uses the following technologies:", 
+                            React.createElement("ul", null, 
+                                React.createElement("li", null, "React"), 
+                                React.createElement("li", null, "React Router"), 
+                                React.createElement("li", null, "Flux"), 
+                                React.createElement("li", null, "Browserify"), 
+                                React.createElement("li", null, "Node")
+                            )
                         )
-                    )
                 )
       
       );
@@ -33659,7 +33661,9 @@ var App = React.createClass({displayName: "App",
         return (
             React.createElement("div", null, 
                 React.createElement(Header, null), 
-                this.props.children, 
+                React.createElement("section", {id: "body", className: "container"}, 
+                    this.props.children
+                ), 
                 React.createElement(Footer, null)
             )
         );
@@ -33711,7 +33715,7 @@ var Header = React.createClass({displayName: "Header",
                             React.createElement("ul", {className: "nav navbar-nav navbar-right"}, 
                                 React.createElement("li", {className: "nav"}, React.createElement(Link, {to: "/"}, "Home")), 
                                 React.createElement("li", {className: "nav"}, React.createElement(Link, {to: "/about"}, "About")), 
-                                React.createElement("li", {className: "nav"}, React.createElement("a", {href: "contact.html"}, "Contact"))
+                                React.createElement("li", {className: "nav"}, React.createElement(Link, {to: "/contact"}, "Contact"))
                             )
                         )
                     )
@@ -33728,12 +33732,33 @@ module.exports = Header;
 
 var React = require('react');
 
+var Contact = React.createClass({displayName: "Contact",
+  render: function() {
+      return (
+                React.createElement("div", null, 
+                    React.createElement("div", {className: "page-header"}, 
+                        React.createElement("h1", null, "Contact")
+                    ), 
+                        React.createElement("p", null, 
+                            "Contact us please!"
+                        )
+                )
+      
+      );
+  }
+});
+
+module.exports = Contact;
+
+},{"react":217}],223:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+
 var Home = React.createClass({displayName: "Home",
     render: function() {
         return (
             React.createElement("div", null, 
-                React.createElement("div", {id: "header"}), 
-                React.createElement("section", {id: "body", className: "container"}, 
                     React.createElement("div", {className: "page-header"}, 
                         React.createElement("ol", {className: "breadcrumb"}, 
                             React.createElement("li", {className: "active"}, "Home")
@@ -33745,7 +33770,6 @@ var Home = React.createClass({displayName: "Home",
                         React.createElement("p", {className: "lead"}, "Here's my main section. hop chuck turducken. Pork belly shankle spare ribs bacon andouille pancetta ground round short loin, cow t-bone flank ribeye tail. Pork belly turducken picanha, cupim ball tip t-bone kielbasa beef ribs shankle. Pork loin turkey tri-tip, andouille frankfurter shankle pork belly boudin picanha. Spare ribs jowl hamburger venison bacon pork belly turkey."), 
                         React.createElement("p", null, "Here's my main section. hop chuck turducken. Pork belly shankle spare ribs bacon andouille pancetta ground round short loin, cow t-bone flank ribeye tail. Pork belly turducken picanha, cupim ball tip t-bone kielbasa beef ribs shankle. Pork loin turkey tri-tip, andouille frankfurter shankle pork belly boudin picanha. Spare ribs jowl hamburger venison bacon pork belly turkey.")
                     )
-                )
             )
         );
     }
@@ -33753,7 +33777,7 @@ var Home = React.createClass({displayName: "Home",
 
 module.exports = Home;
 
-},{"react":217}],223:[function(require,module,exports){
+},{"react":217}],224:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -33768,7 +33792,7 @@ var Test = React.createClass({displayName: "Test",
 
 module.exports = Test;
 
-},{"react":217}],224:[function(require,module,exports){
+},{"react":217}],225:[function(require,module,exports){
 //main.js
 
 var React = require('react');
@@ -33782,7 +33806,7 @@ var routes = require('./routes');
 
 ReactDOM.render((React.createElement(Router, null, routes)), document.getElementById('app'));
 
-},{"./routes":225,"react":217,"react-dom":3,"react-router":31}],225:[function(require,module,exports){
+},{"./routes":226,"react":217,"react-dom":3,"react-router":31}],226:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -33794,15 +33818,17 @@ var IndexRoute = ReactRouter.IndexRoute;
 var App = require('./components/app');
 var Home = require('./components/homePage.js');
 var About = require('./components/about/aboutPage.js');
+var Contact = require('./components/contact/contactPage.js');
 
 //if you don't include a path, the path will be the same as the name
 var routes = (
     React.createElement(Route, {path: "/", component: App}, 
         React.createElement(IndexRoute, {component: Home}), 
-        React.createElement(Route, {path: "about", component: About})
+        React.createElement(Route, {path: "about", component: About}), 
+        React.createElement(Route, {path: "contact", component: Contact})
     )
 );
 
 module.exports = routes;
 
-},{"./components/about/aboutPage.js":218,"./components/app":219,"./components/homePage.js":222,"react":217,"react-router":31}]},{},[224,225,219,222,218,220,221,223]);
+},{"./components/about/aboutPage.js":218,"./components/app":219,"./components/contact/contactPage.js":222,"./components/homePage.js":223,"react":217,"react-router":31}]},{},[225,226,219,223,218,220,221,222,224]);

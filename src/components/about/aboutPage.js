@@ -6,16 +6,18 @@ var About = React.createClass({
   render: function() {
       return (
                 <div>
-                    <h1>About</h1>
-                    <p> This application uses the following technologies:
-                        <ul>
-                            <li>React</li>
-                            <li>React Router</li>
-                            <li>Flux</li>
-                            <li>Browserify</li>
-                            <li>Node</li>
-                        </ul>
-                    </p>
+                    <div className="page-header">
+                        <h1>About</h1>
+                    </div>
+                        <p> This application uses the following technologies:
+                            <ul>
+                                <li>React</li>
+                                <li>React Router</li>
+                                <li>Flux</li>
+                                <li>Browserify</li>
+                                <li>Node</li>
+                            </ul>
+                        </p>
                 </div>
       
       );

@@ -12,7 +12,9 @@ var App = React.createClass({
         return (
             <div>
                 <Header/>
-                {this.props.children}
+                <section id="body" className="container">
+                    {this.props.children}
+                </section>
                 <Footer/>
             </div>
         );
