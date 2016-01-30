@@ -6,6 +6,7 @@ var Footer = React.createClass({
     render: function() {
         return (
             <div>
+                <hr></hr>
                 <footer className="container">
                     FOOTER
                 </footer>

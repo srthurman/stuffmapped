@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:browserify": "browserify -t reactify src/main.js src/routes.js src/components/app.js src/components/**/*.js -o src/bundle.js",
+    "build:browserify": "browserify -t reactify src/main.js src/routes.js src/components/app.js src/components/homePage.js src/components/**/*.js -o src/bundle.js",
     "build:watch": "watchify -t reactify src/main.js src/routes.js src/components/*.js src/components/**/*.js -o src/bundle.js -v"
   },
   "repository": {

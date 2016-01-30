@@ -3,7 +3,7 @@
 var React = require('react');
 var Header = require('./common/header.js');
 var Footer = require('./common/footer.js');
-var Home = require('./common/homePage.js');
+// var Home = require('./common/homePage.js');
 $ = jQuery = require('jquery'); // Need to declare jquery globally b/c bootstrap expects it to be there
 //declare it twice means you can use either $ or jQuery
 
@@ -12,7 +12,7 @@ var App = React.createClass({
         return (
             <div>
                 <Header/>
-                <Home/>
+                {this.props.children}
                 <Footer/>
             </div>
         );

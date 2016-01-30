@@ -19,9 +19,7 @@ var Home = React.createClass({
                         <p className="lead">Here's my main section. hop chuck turducken. Pork belly shankle spare ribs bacon andouille pancetta ground round short loin, cow t-bone flank ribeye tail. Pork belly turducken picanha, cupim ball tip t-bone kielbasa beef ribs shankle. Pork loin turkey tri-tip, andouille frankfurter shankle pork belly boudin picanha. Spare ribs jowl hamburger venison bacon pork belly turkey.</p> 
                         <p>Here's my main section. hop chuck turducken. Pork belly shankle spare ribs bacon andouille pancetta ground round short loin, cow t-bone flank ribeye tail. Pork belly turducken picanha, cupim ball tip t-bone kielbasa beef ribs shankle. Pork loin turkey tri-tip, andouille frankfurter shankle pork belly boudin picanha. Spare ribs jowl hamburger venison bacon pork belly turkey.</p> 
                     </section>
-                    <section id="map"></section>
                 </section>
-                <div id="footer"></div>
             </div>
         );
     }

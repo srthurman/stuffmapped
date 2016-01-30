@@ -1,6 +1,8 @@
 "use strict";
 
 var React = require('react');
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link;
 
 var Header = React.createClass({
     render: function() {
@@ -11,13 +13,13 @@ var Header = React.createClass({
                         <div className="navbar-header">
                             <button className="btn btn-success btn-sm navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span className="glyphicon glyphicon-chevron-down"></span></button>
                             <div id="logo">
-                                <a href="."><h4>Stuffmapped</h4></a>
+                                <Link to="/"><h4>Stuffmapped</h4></Link>
                             </div>
                         </div>
                         <div className="navbar-collapse collapse">
                             <ul className="nav navbar-nav navbar-right">
-                                <li className="nav active"><a href=".">Home</a></li>
-                                <li className="nav"><a href="about.html">About</a></li>
+                                <li className="nav"><Link to="/">Home</Link></li>
+                                <li className="nav"><Link to="/about">About</Link></li>
                                 <li className="nav"><a href="contact.html">Contact</a></li>
                             </ul>
                         </div>

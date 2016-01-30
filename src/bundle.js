@@ -33650,7 +33650,7 @@ module.exports = About;
 var React = require('react');
 var Header = require('./common/header.js');
 var Footer = require('./common/footer.js');
-var Home = require('./common/homePage.js');
+// var Home = require('./common/homePage.js');
 $ = jQuery = require('jquery'); // Need to declare jquery globally b/c bootstrap expects it to be there
 //declare it twice means you can use either $ or jQuery
 
@@ -33659,7 +33659,7 @@ var App = React.createClass({displayName: "App",
         return (
             React.createElement("div", null, 
                 React.createElement(Header, null), 
-                React.createElement(Home, null), 
+                this.props.children, 
                 React.createElement(Footer, null)
             )
         );
@@ -33668,7 +33668,7 @@ var App = React.createClass({displayName: "App",
 
 module.exports = App;
 
-},{"./common/footer.js":220,"./common/header.js":221,"./common/homePage.js":222,"jquery":2,"react":217}],220:[function(require,module,exports){
+},{"./common/footer.js":220,"./common/header.js":221,"jquery":2,"react":217}],220:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -33677,8 +33677,7 @@ var Footer = React.createClass({displayName: "Footer",
     render: function() {
         return (
             React.createElement("div", null, 
-                React.createElement("p", null, "FIRST LINE"), 
-                React.createElement("p", null, "second line!!!!!!!!!!!!!!"), 
+                React.createElement("hr", null), 
                 React.createElement("footer", {className: "container"}, 
                     "FOOTER"
                 )
@@ -33693,6 +33692,8 @@ module.exports = Footer;
 "use strict";
 
 var React = require('react');
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link;
 
 var Header = React.createClass({displayName: "Header",
     render: function() {
@@ -33703,13 +33704,13 @@ var Header = React.createClass({displayName: "Header",
                         React.createElement("div", {className: "navbar-header"}, 
                             React.createElement("button", {className: "btn btn-success btn-sm navbar-toggle", "data-toggle": "collapse", "data-target": ".navbar-collapse"}, React.createElement("span", {className: "glyphicon glyphicon-chevron-down"})), 
                             React.createElement("div", {id: "logo"}, 
-                                React.createElement("a", {href: "."}, React.createElement("h4", null, "Stuffmapped"))
+                                React.createElement(Link, {to: "/"}, React.createElement("h4", null, "Stuffmapped"))
                             )
                         ), 
                         React.createElement("div", {className: "navbar-collapse collapse"}, 
                             React.createElement("ul", {className: "nav navbar-nav navbar-right"}, 
-                                React.createElement("li", {className: "nav active"}, React.createElement("a", {href: "."}, "Home")), 
-                                React.createElement("li", {className: "nav"}, React.createElement("a", {href: "about.html"}, "About")), 
+                                React.createElement("li", {className: "nav"}, React.createElement(Link, {to: "/"}, "Home")), 
+                                React.createElement("li", {className: "nav"}, React.createElement(Link, {to: "/about"}, "About")), 
                                 React.createElement("li", {className: "nav"}, React.createElement("a", {href: "contact.html"}, "Contact"))
                             )
                         )
@@ -33722,7 +33723,7 @@ var Header = React.createClass({displayName: "Header",
 
 module.exports = Header;
 
-},{"react":217}],222:[function(require,module,exports){
+},{"react":217,"react-router":31}],222:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -33743,10 +33744,8 @@ var Home = React.createClass({displayName: "Home",
                     React.createElement("section", {id: "main"}, 
                         React.createElement("p", {className: "lead"}, "Here's my main section. hop chuck turducken. Pork belly shankle spare ribs bacon andouille pancetta ground round short loin, cow t-bone flank ribeye tail. Pork belly turducken picanha, cupim ball tip t-bone kielbasa beef ribs shankle. Pork loin turkey tri-tip, andouille frankfurter shankle pork belly boudin picanha. Spare ribs jowl hamburger venison bacon pork belly turkey."), 
                         React.createElement("p", null, "Here's my main section. hop chuck turducken. Pork belly shankle spare ribs bacon andouille pancetta ground round short loin, cow t-bone flank ribeye tail. Pork belly turducken picanha, cupim ball tip t-bone kielbasa beef ribs shankle. Pork loin turkey tri-tip, andouille frankfurter shankle pork belly boudin picanha. Spare ribs jowl hamburger venison bacon pork belly turkey.")
-                    ), 
-                    React.createElement("section", {id: "map"})
-                ), 
-                React.createElement("div", {id: "footer"})
+                    )
+                )
             )
         );
     }
@@ -33774,19 +33773,14 @@ module.exports = Test;
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-var render = ReactDOM.render;
 
 var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
+
 
 var routes = require('./routes');
 
-//render(<Header/>, document.getElementById('header'));
-//render(<TestComponent/>, document.getElementById('map'));
-//render(<Footer/>, document.getElementById('footer'));
-
-render((React.createElement(Router, null, routes)), document.getElementById('app'));
+ReactDOM.render((React.createElement(Router, null, routes)), document.getElementById('app'));
 
 },{"./routes":225,"react":217,"react-dom":3,"react-router":31}],225:[function(require,module,exports){
 "use strict";
@@ -33794,16 +33788,21 @@ render((React.createElement(Router, null, routes)), document.getElementById('app
 var React = require('react');
 
 var ReactRouter = require('react-router');
-var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
+var IndexRoute = ReactRouter.IndexRoute;
 
 var App = require('./components/app');
+var Home = require('./components/homePage.js');
+var About = require('./components/about/aboutPage.js');
 
 //if you don't include a path, the path will be the same as the name
 var routes = (
-    React.createElement(Route, {path: "/", component: App})
+    React.createElement(Route, {path: "/", component: App}, 
+        React.createElement(IndexRoute, {component: Home}), 
+        React.createElement(Route, {path: "about", component: About})
+    )
 );
 
 module.exports = routes;
 
-},{"./components/app":219,"react":217,"react-router":31}]},{},[224,225,219,218,220,221,222,223]);
+},{"./components/about/aboutPage.js":218,"./components/app":219,"./components/homePage.js":222,"react":217,"react-router":31}]},{},[224,225,219,222,218,220,221,223]);
