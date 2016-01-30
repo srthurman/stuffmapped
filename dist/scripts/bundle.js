@@ -33754,21 +33754,18 @@ module.exports = Contact;
 "use strict";
 
 var React = require('react');
+var Map = require('./map/map.js');
 
 var Home = React.createClass({displayName: "Home",
     render: function() {
         return (
             React.createElement("div", null, 
                     React.createElement("div", {className: "page-header"}, 
-                        React.createElement("ol", {className: "breadcrumb"}, 
-                            React.createElement("li", {className: "active"}, "Home")
-                        ), 
                         React.createElement("h1", null, "Main Section"), 
                         React.createElement("p", {className: "text-muted"}, "Here's a subheader")
                     ), 
                     React.createElement("section", {id: "main"}, 
-                        React.createElement("p", {className: "lead"}, "Here's my main section. hop chuck turducken. Pork belly shankle spare ribs bacon andouille pancetta ground round short loin, cow t-bone flank ribeye tail. Pork belly turducken picanha, cupim ball tip t-bone kielbasa beef ribs shankle. Pork loin turkey tri-tip, andouille frankfurter shankle pork belly boudin picanha. Spare ribs jowl hamburger venison bacon pork belly turkey."), 
-                        React.createElement("p", null, "Here's my main section. hop chuck turducken. Pork belly shankle spare ribs bacon andouille pancetta ground round short loin, cow t-bone flank ribeye tail. Pork belly turducken picanha, cupim ball tip t-bone kielbasa beef ribs shankle. Pork loin turkey tri-tip, andouille frankfurter shankle pork belly boudin picanha. Spare ribs jowl hamburger venison bacon pork belly turkey.")
+                        React.createElement(Map, null)
                     )
             )
         );
@@ -33777,20 +33774,20 @@ var Home = React.createClass({displayName: "Home",
 
 module.exports = Home;
 
-},{"react":217}],224:[function(require,module,exports){
+},{"./map/map.js":224,"react":217}],224:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
 
-var Test = React.createClass({displayName: "Test",
+var Map = React.createClass({displayName: "Map",
     render: function() {
         return (
-            React.createElement("h1", null, "Hello, Everyone!")
+            React.createElement("h1", null, "Hello, Everyone! The map will go here")
         );
     }
 });
 
-module.exports = Test;
+module.exports = Map;
 
 },{"react":217}],225:[function(require,module,exports){
 //main.js
