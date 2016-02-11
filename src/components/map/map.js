@@ -1,7 +1,8 @@
 "use strict";
 
 var React = require('react');
-var leaflet = require('leaflet');
+var L = require('leaflet');
+require('leaflet-geocoder-mapzen');
 
 var Map = React.createClass({
     
@@ -15,6 +16,14 @@ var Map = React.createClass({
     				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
     			id: 'mapbox.streets'
     	}).addTo(map);
+    	
+    	var options = {
+          bounds: true,
+          position: 'topright',
+          expanded: true
+        }
+        
+        L.control.geocoder('search-OQUCvvY', options).addTo(map);
     },
     render: function() {
         return (
