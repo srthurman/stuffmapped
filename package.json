@@ -10,8 +10,10 @@
     "js:watch": "watchify -t reactify src/*.js src/components/*.js src/components/**/*.js -o dist/scripts/bundle.js -v",
     "build:html": "cp ./src/*.html ./dist",
     "build:css": "npm run css:min && npm run css:concat",
-    "css:concat": "cat node_modules/bootstrap/dist/css/bootstrap.min.css src/css/*.min.css >> dist/css/bundle.css",
-    "css:min": "cleancss src/css/site.css -o src/css/site.min.css"
+    "css:min": "npm run css:min:site && npm run css:min:leaflet",
+    "css:min:site": "cleancss src/css/site.css -o src/css/site.min.css",
+    "css:min:leaflet": "cleancss node_modules/leaflet/dist/leaflet.css -o src/css/leaflet.min.css",
+    "css:concat": "cat node_modules/bootstrap/dist/css/bootstrap.min.css src/css/*.min.css >> dist/css/bundle.css"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
     "bootstrap": "^3.3.6",
     "eslint": "^1.10.3",
     "jquery": "^2.2.0",
+    "leaflet": "^0.7.7",
     "react": "^0.14.7",
     "react-router": "^2.0.0-rc5"
   },
