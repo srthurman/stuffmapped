@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:html && npm run build:css && npm run build:js",
+    "start": "npm run build && node server.js",
+    "build": "npm run build:css && npm run build:js",
     "build:js": "npm run js:browserify",
     "js:browserify": "browserify -t reactify src/*.js src/components/*.js src/components/**/*.js -o dist/scripts/bundle.js -v",
     "js:watch": "watchify -t reactify src/*.js src/components/*.js src/components/**/*.js -o dist/scripts/bundle.js -v",
-    "build:html": "cp ./src/*.html ./dist",
     "build:css": "npm run css:min && npm run css:concat",
     "css:min": "npm run css:min:site && npm run css:min:leaflet && npm run css:min:leaflet-gm",
     "css:min:site": "cleancss src/css/site.css -o src/css/site.min.css",
@@ -29,6 +29,8 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "eslint": "^1.10.3",
+    "express": "^4.13.4",
+    "html": "0.0.10",
     "jquery": "^2.2.0",
     "leaflet": "^0.7.7",
     "mapbox": "^0.12.0",
